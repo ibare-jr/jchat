@@ -1,39 +1,35 @@
-import logo from './logo.svg';
-import meet from './meet.svg'
-import './App.css';
+import Home from "./pages/Home"
+import Friends from "./pages/Friends"
+import Chating from "./pages/Chating"
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
-function Header(props) {
-  return (
-    <header className="App-header">
-      <img src={props.logo} className="App-logo" alt="logo" />
-      <p>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {props.linkLabel}
-      </a>
-    </header>
-  )
-}
-
-function Jinu() {
-  return(
-    <Header linkLabel="My name is Jchat" logo={logo}></Header>
-  )
-}
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home></Home>,
+    // errorElement: <div>Error</div>
+  },
+  {
+    path: "/friends",
+    element: <Friends></Friends>,
+    // errorElement: <div>Error</div>
+  },
+  {
+    path: "/chating",
+    element: <Chating></Chating>,
+    // errorElement: <div>Error</div>
+  }
+]);
 
 function App() {
   return (
-    <div className="App">
-      <Header linkLabel="Nice to meet you" logo={meet}></Header>
-      <Jinu></Jinu>
+    <div>
+      <RouterProvider router={router} />
     </div>
-  );
+  )
 }
 
 export default App;
